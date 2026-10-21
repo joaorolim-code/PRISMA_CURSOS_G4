@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos - Prisma Cursos</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/contatos.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO GLOBAL -->
+    <header class="navbar-global">
+        <div class="navbar-content">
+            <div class="logo">
+                <div class="logo-text">
+                    PRISMA<br>CURSOS
+                </div>
+                <img src="../assets/images/logo-prisma.svg" alt="Logótipo Prisma Cursos">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="quem-somos.html">Quem somos</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="feedbacks.html">Feedbacks</a></li>
+                    <li><a href="contatos.html" class="active">Contatos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-main">
+        
+        <section class="contact-left">
+            <h1 class="contact-title">Deseja falar conosco?</h1>
+            
+            <form class="contact-form" id="formContato">
+                <input type="text" placeholder="Digite seu nome..." required>
+                <input type="email" placeholder="Digite seu email..." required>
+                <input type="tel" placeholder="Digite seu telefone..." required>
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </form>
+        </section>
+
+        <section class="contact-right">
+            <h1 class="contact-title">Nossos Contatos e<br>Redes sociais</h1>
+            
+            <ul class="social-list">
+                <li>
+                    <img src="../assets/icons/WhatsApp.svg" alt="WhatsApp">
+                    <span>(61) 9-9636-0110</span>
+                </li>
+                <li>
+                    <img src="../assets/icons/Gmail.svg" alt="Email">
+                    <span>prismacursos@prisma.edu.br</span>
+                </li>
+                <li>
+                    <img src="../assets/icons/Instagram.svg" alt="Instagram">
+                    <span>@prismacursosfc</span>
+                </li>
+            </ul>
+
+            <div class="progress-section">
+                <p>Vamos ver até onde você chega!</p>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+
+</body>
+</html>
