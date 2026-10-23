@@ -1,0 +1,74 @@
+.secao-feedbacks {
+    padding: 88px 45px;
+    display: flex;
+    justify-content: center; 
+}
+
+.container-feedbacks {
+    display: flex;
+    flex-direction: column; 
+    gap: 70px; 
+    width: 100%;
+    max-width: 1440px; 
+}
+
+.card-feedback {
+    display: flex; 
+    align-items: center; 
+    gap: 40px; 
+    
+    background-color: transparent;
+    border: 5px solid #4858B0; 
+    border-radius: 10px; 
+    padding: 36px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.foto-aluno {
+    width: 246px;
+    height: 234px;
+    border-radius: 50%; 
+    object-fit: cover;
+}
+
+.conteudo-feedback {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 22px; 
+}
+
+.cabecalho-feedback {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.card-feedback h3 {
+    margin: 0;
+    color: #FFFFFF; 
+    font-family: 'Outfit', sans-serif;
+    font-size: 40px; 
+    font-weight: 500;
+}
+.curso-verde {
+    color: #94FFAF; 
+}
+
+
+.estrelas {
+    margin: 0;
+    color: #94FFAF; 
+    font-size: 46px; 
+    letter-spacing: 1px; 
+}
+
+.card-feedback p {
+    margin: 0;
+    color: #FFFFFF; 
+    font-family: 'Outfit', sans-serif;
+    font-size: 30px; 
+    line-height: 1.5;
+
+}
