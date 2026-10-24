@@ -1,0 +1,84 @@
+.logo_prisma {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 100%;             
+    margin: 20px 0;          
+}
+.texto_inicial{
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    font-family: 'Outfit',sans-serif;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
+.destaque{
+    color: #94FFAF;
+}
+.texto_central{
+    font-size: 36px;
+    text-align: left;
+    color: white;
+    font-family: 'Outfit',sans-serif;
+    font-weight: 900;
+    margin-left: 110px;
+    margin-right: 110px;
+}
+.texto_central p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.logo_prisma img {
+    display: block;         
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%; 
+    width: 148px;
+    height: auto;
+}
+.imagem_robo {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 58px;   
+    margin-bottom: 70px;     
+}
+.imagem_centralizada {
+    display: block;
+    width: 934px;            
+    max-width: 100%;         
+    height: auto;     
+}
+.explicacao{
+    font-size: 36px;
+    text-align: left;
+    color: white;
+    font-family: 'Outfit',sans-serif;
+    font-weight: 900;
+    margin-left: 110px;
+    margin-right: 110px;
+    margin-bottom: 100px;
+}
+.explicacao p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+@media (max-width: 768px) {
+    .texto_central,
+    .explicacao {
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 20px;
+    }
+    .texto_inicial {
+        font-size: 28px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
