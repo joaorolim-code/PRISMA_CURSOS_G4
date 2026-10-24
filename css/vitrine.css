@@ -1,0 +1,283 @@
+:root {
+    --azul-fundo: #021166;
+    --azul-principal: #4858B0;
+    --azul-card: #6370B0;
+    --verde: #94FFAF;
+    --branco: #ffffff;
+    --preto: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--azul-fundo);
+    color: var(--branco);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ===== Cabeçalho ===== */
+.navbar-global {
+    background: var(--azul-principal);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    padding: 16px 24px;
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.logo img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+}
+
+.nav-links a {
+    display: block;
+    padding: 8px 18px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 40px;
+    transition: background 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* ===== Título da seção ===== */
+.escolha-sua-trilha-container {
+    display: block;
+    max-width: none;
+    width: 100%;
+    margin: 64px auto 40px;
+    padding: 0 24px;
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 700;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.aprendizagem {
+    color: var(--verde);
+}
+
+/* ===== Grade de cursos =====*/
+
+.cursos-grid {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    flex: 1;
+}
+
+/* Card (qualquer classe: rectangle-parent, rectangle-group, frame-div...) */
+.cursos-grid > * {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--branco);
+    color: var(--preto);
+    border-radius: 24px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cursos-grid > *:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+.cursos-grid > * > *:first-child {
+    width: 100%;
+    aspect-ratio: 387 / 300;
+    background: var(--azul-card);
+    opacity: 0.85;
+}
+
+
+.cursos-grid > * > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 387 / 300;
+    padding: 0px;
+    object-fit: contain;
+}
+
+
+.cursos-grid > * > *:nth-child(3) {
+    padding: 16px 20px 0;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: left;
+}
+
+
+.cursos-grid > * > *:nth-child(4) {
+    padding: 8px 20px 24px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* ===== Rodapé ===== */
+.rodap {
+    margin-top: 80px;
+    background: var(--azul-principal);
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.25);
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.prisma-cursos {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 2px solid var(--branco);
+    border-radius: 40px;
+    font-size: 24px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.button:hover {
+    background: var(--branco);
+    color: var(--azul-principal);
+}
+
+@media (max-width: 960px) {
+    .cursos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar-content {
+        justify-content: center;
+    }
+
+    .logo-text {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .escolha-sua-trilha-container {
+        margin: 40px auto 24px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .rodap {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+/* ===== Ajuste individual dos ícones ===== */
+.icone-curso-web-design-sem-fundo {
+    transform: scale(1.9);
+}
+
+.icone-curso-photoshop-sem-fundo {
+    transform: scale(1.9);
+}
+
+.icone-curso-ux-design {
+    transform: scale(1.9);
+}
+
+.icone-curso-ceo {
+    transform: scale(1.95);
+}
+
+.icone-curso-decisao-estrategica {
+    transform: scale(1.9);
+}
+
+.icone-curso-ia {
+    transform: scale(1.9);
+}
+
+.icone-curso-gestao-financeira-v2 {
+    transform: scale(1.9);
+}
+
+.icone-curso-poo-em-java {
+    transform: scale(1.9);
+}
+.icone-curso-analise-de-dados {
+    transform: scale(1.9);
+}
