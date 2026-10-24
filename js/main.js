@@ -1,13 +1,23 @@
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        // Ao clicar, o JS adiciona/remove a classe 'active' que ativa o display: flex !important
+        navLinks.classList.toggle('active');
+    });
+}
+
 const formContato = document.getElementById('formContato');
 const progressText = document.querySelector('.progress-section p');
 const progressFill = document.querySelector('.progress-bar-fill');
 
 const progressStates = [
     { text: "Vamos ver até onde você chega!", width: "25%" },
-    { text: "Está indo bem!", width: "50%" },                     
-    { text: "Muito bom!", width: "75%" },                         
-    { text: "Continue! Quase lá...", width: "90%" },              
-    { text: "Parabéns! Bem-vindo ao seu Futuro!", width: "100%" } 
+    { text: "Está indo bem!", width: "50%" },
+    { text: "Muito bom!", width: "75%" },
+    { text: "Continue! Quase lá...", width: "90%" },
+    { text: "Parabéns! Bem-vindo ao seu Futuro!", width: "100%" }
 ];
 
 if (formContato) {
@@ -26,13 +36,11 @@ if (formContato) {
     }
 
     inputs.forEach((input, index) => {
-        
         input.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
-                event.preventDefault();
-                
+                event.preventDefault(); 
                 atualizarProgresso();
-
+                
                 if (index < inputs.length - 1) {
                     inputs[index + 1].focus();
                 } else {
@@ -40,7 +48,7 @@ if (formContato) {
                 }
             }
         });
-
+        
         input.addEventListener('input', atualizarProgresso);
     });
 
@@ -53,7 +61,7 @@ if (formContato) {
         setTimeout(() => {
             alert('Mensagem enviada com sucesso!');
             formContato.reset();
-            atualizarProgresso();
+            atualizarProgresso(); 
         }, 1000); 
     });
 }
