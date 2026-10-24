@@ -1,25 +1,21 @@
 .contact-main {
     display: flex;
     justify-content: center;
-    gap: 80px; 
+    gap: 100px;
     padding: 80px 40px;
-    background-color: #030835; 
-    color: #FFFFFF;
-    min-height: calc(100vh - 80px); 
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-left, .contact-right {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    flex: 1;
     max-width: 450px;
 }
 
-/* Títulos das colunas */
 .contact-title {
     font-size: 32px;
-    font-weight: 400;
-    margin-bottom: 50px;
+    font-weight: 500;
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -30,72 +26,111 @@
 }
 
 .contact-form input {
+    width: 100%;
     padding: 18px 20px;
-    font-size: 20px;
     border: none;
+    border-radius: 0;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    color: #333333;
     outline: none;
-    font-family: 'Inter', sans-serif;
 }
 
 .input-green::placeholder {
     color: #2ECC71;
 }
 
-.contact-form input:not(.input-green)::placeholder {
-    color: #000000;
-}
-
 .btn-enviar {
-    background: transparent;
+    background-color: transparent;
     color: #FFFFFF;
     border: none;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     cursor: pointer;
     margin-top: 10px;
     text-align: center;
 }
 
+.btn-enviar:hover {
+    text-decoration: underline;
+}
+
 .social-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin-bottom: 50px;
 }
 
 .social-list li {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
     font-size: 18px;
     font-weight: 500;
 }
 
 .social-list img {
-    width: 40px;
-    height: 40px;
-}
-
-.progress-section {
-    margin-top: 60px;
+    width: 35px;
+    height: 35px;
 }
 
 .progress-section p {
-    margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .progress-bar-bg {
     width: 100%;
-    height: 25px;
-    background-color: #D9D9D9; 
+    height: 20px;
+    background-color: #D9D9D9;
 }
 
 .progress-bar-fill {
-    width: 25%; 
+    width: 25%;
     height: 100%;
-    background-color: #2ECC71; 
-    transition: width 0.4s ease-in-out; 
+    background-color: #2ECC71;
+    transition: width 0.4s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    .contact-main {
+        gap: 40px;
+        padding: 60px 20px;
+    }
+    .contact-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-main {
+        flex-direction: column; 
+        align-items: center;
+        padding: 40px 20px;
+        gap: 60px;
+    }
+    
+    .contact-left, .contact-right {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .contact-title {
+        font-size: 24px; 
+        margin-bottom: 30px;
+    }
+    
+    .social-list li {
+        font-size: 16px; 
+        gap: 15px;
+    }
+    
+    .contact-form input {
+        font-size: 16px; 
+        padding: 15px;
+    }
 }

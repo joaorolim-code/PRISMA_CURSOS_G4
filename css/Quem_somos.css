@@ -5,10 +5,6 @@
     width: 100%;             
     margin: 20px 0;          
 }
-.logo_prisma img{
-    width: 148px;
-    height: auto;
-}
 .texto_inicial{
     font-size: 50px;
     text-align: center;
@@ -36,22 +32,13 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
-.logo_prisma {
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-    width: 100%;            
-    margin: 20px 0;          
-}
 .logo_prisma img {
-    display: block;
-    margin: 0 auto;          
-}
-.logo_prisma img {
-    display: block;
+    display: block;         
     margin-left: auto;
     margin-right: auto;
     max-width: 100%; 
+    width: 148px;
+    height: auto;
 }
 .imagem_robo {
     display: flex;
@@ -79,4 +66,19 @@
 .explicacao p{
     margin-top: 0px;
     margin-bottom: 0px;
+}
+@media (max-width: 768px) {
+    .texto_central,
+    .explicacao {
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 20px;
+    }
+    .texto_inicial {
+        font-size: 28px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
 }
