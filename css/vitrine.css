@@ -166,10 +166,6 @@ a {
         max-width: 420px;
     }
 
-    .rodap {
-        justify-content: center;
-        text-align: center;
-    }
 }
 
 
@@ -207,4 +203,80 @@ a {
 }
 .icone-curso-analise-de-dados {
     transform: scale(1.9);
+}
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: 100%;
+    min-height: 90px;
+    margin-top: 80px;
+    padding: 14px 20px;
+
+    background-color: #4858B0;
+}
+
+.rodape-logo {
+    color: #FFFFFF;
+    text-decoration: none;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.rodape-logo:focus-visible {
+    outline: 2px solid #94FFAF;
+    outline-offset: 5px;
+}
+
+.botao-rodape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 22px;
+
+    border: 2px solid #FFFFFF;
+    border-radius: 40px;
+
+    color: #FFFFFF;
+    text-decoration: none;
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.botao-rodape:hover {
+    background-color: #FFFFFF;
+    color: #4858B0;
+}
+
+.botao-rodape:focus-visible {
+    outline: 2px solid #94FFAF;
+    outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+    .rodape {
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .rodape-logo {
+        font-size: 17px;
+    }
+
+    .botao-rodape {
+        padding: 9px 14px;
+        font-size: 15px;
+    }
 }
