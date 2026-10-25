@@ -67,6 +67,32 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
+.rodape {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 90px;
+    padding: 14px 20px;
+
+    background-color: #4858B0;
+}
+
+.rodape-logo {
+    color: #FFFFFF;
+    text-decoration: none;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.rodape-logo:focus-visible {
+    outline: 2px solid #94FFAF;
+    outline-offset: 5px;
+}
+
 @media (max-width: 768px) {
     .texto_central,
     .explicacao {

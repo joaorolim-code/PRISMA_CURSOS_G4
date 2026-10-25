@@ -1,11 +1,38 @@
 console.log("o js tá carregando...");
+
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
+function fecharMenu() {
+    if (!menuToggle || !navLinks) return;
+
+    navLinks.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Abrir menu');
+}
+
 if (menuToggle && navLinks) {
+
     menuToggle.addEventListener('click', () => {
-        // Ao clicar, o JS adiciona/remove a classe 'active' que ativa o display: flex !important
-        navLinks.classList.toggle('active');
+        const menuAberto = navLinks.classList.toggle('active');
+
+        menuToggle.setAttribute('aria-expanded', String(menuAberto));
+
+        menuToggle.setAttribute(
+            'aria-label',
+            menuAberto ? 'Fechar menu' : 'Abrir menu'
+        );
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', fecharMenu);
+    });
+
+    // Fecha o menu se a tela passar para o tamanho de computador.
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            fecharMenu();
+        }
     });
 }
 
@@ -21,48 +48,66 @@ const progressStates = [
     { text: "Parabéns! Bem-vindo ao seu Futuro!", width: "100%" }
 ];
 
-if (formContato) {
+if (formContato && progressText && progressFill) {
+
     const inputs = Array.from(formContato.querySelectorAll('input'));
 
     function atualizarProgresso() {
         let camposPreenchidos = 0;
+
         inputs.forEach(input => {
             if (input.value.trim() !== '') {
                 camposPreenchidos++;
             }
         });
 
-        progressText.textContent = progressStates[camposPreenchidos].text;
-        progressFill.style.width = progressStates[camposPreenchidos].width;
+        const indice = Math.min(
+            camposPreenchidos,
+            progressStates.length - 1
+        );
+
+        progressText.textContent = progressStates[indice].text;
+        progressFill.style.width = progressStates[indice].width;
     }
 
     inputs.forEach((input, index) => {
+
         input.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
-                event.preventDefault(); 
+                event.preventDefault();
+
                 atualizarProgresso();
-                
+
                 if (index < inputs.length - 1) {
                     inputs[index + 1].focus();
                 } else {
-                    formContato.querySelector('button').focus();
+                    const botaoEnviar = formContato.querySelector(
+                        'button[type="submit"], button:not([type])'
+                    );
+
+                    if (botaoEnviar) {
+                        botaoEnviar.focus();
+                    }
                 }
             }
         });
-        
+
         input.addEventListener('input', atualizarProgresso);
     });
 
     formContato.addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        
+        event.preventDefault();
+
         progressText.textContent = progressStates[4].text;
         progressFill.style.width = progressStates[4].width;
-        
+
         setTimeout(() => {
             alert('Mensagem enviada com sucesso!');
+
             formContato.reset();
-            atualizarProgresso(); 
-        }, 1000); 
+            atualizarProgresso();
+        }, 1000);
     });
+
+    atualizarProgresso();
 }
