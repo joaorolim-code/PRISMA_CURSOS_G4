@@ -1,46 +1,156 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste do Cabeçalho - Prisma Cursos</title>
-    
+    <meta name="description" content="Explore os cursos da Prisma Cursos e desenvolva novas habilidades.">
+
+    <title>Início | Prisma Cursos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CORREÇÃO: Removido os ../ -->
     <link rel="stylesheet" href="css/layout.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/inicio.css">
+
+    <!-- CORREÇÃO: Removido o ../ -->
+    <script src="js/main.js" defer></script>
 </head>
 <body>
 
     <header class="navbar-global">
         <div class="navbar-content">
-            
-            <div class="logo">
-                <div class="logo-text">
-                    PRISMA<br>CURSOS
-                </div>
-                <img src="assets/images/logo-prisma.png" alt="Logótipo Prisma Cursos">
-            </div>
 
-            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+            <!-- CORREÇÃO: inicio.html mudou para index.html e removido ../ da imagem -->
+            <a href="index.html" class="logo" aria-label="Prisma Cursos - Início">
+                <span class="logo-text">PRISMA<br>CURSOS</span>
+                <img src="assets/images/logo-prisma.png" alt="">
+            </a>
 
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Início</a></li>
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="menu-principal">
+                &#9776;
+            </button>
+
+            <nav aria-label="Navegação principal">
+                <ul class="nav-links" id="menu-principal">
+                    <!-- CORREÇÃO: Links apontando para a pasta pages/ e início para index.html -->
+                    <li><a href="index.html" class="active" aria-current="page">Início</a></li>
                     <li><a href="pages/quem-somos.html">Quem somos</a></li>
                     <li><a href="pages/vitrine.html">Cursos</a></li>
                     <li><a href="pages/feedbacks.html">Feedbacks</a></li>
-                    <li><a href="pages/contatos.html" class="active">Contatos</a></li>
+                    <li><a href="pages/contatos.html">Contatos</a></li>
                 </ul>
             </nav>
-            
+
         </div>
     </header>
-    <script src="js/main.js"></script>
+
+    <main class="inicio">
+
+        <section class="apresentacao">
+
+            <h1>
+                SEU PRÓXIMO NÍVEL COMEÇA
+                <span class="destaque">AQUI.</span>
+            </h1>
+
+            <p>
+                Desenvolva habilidades, amplie horizontes e prepare-se para
+                oportunidades do futuro.
+            </p>
+
+            <!-- CORREÇÃO: Adicionado pages/ -->
+            <a href="pages/vitrine.html" class="botao">
+                Explore nossos Cursos <span aria-hidden="true">➜</span>
+            </a>
+
+        </section>
+
+        <section class="categorias" aria-label="Áreas de conhecimento">
+
+            <!-- CORREÇÃO: Adicionado pages/ nos links e removido ../ das imagens -->
+            <a href="pages/vitrine.html" class="categoria">
+                <img src="assets/images/tecnologia.png" alt="">
+                <span>Tecnologia</span>
+            </a>
+
+            <a href="pages/vitrine.html" class="categoria">
+                <img src="assets/images/criatividade.png" alt="">
+                <span>Design e Criatividade</span>
+            </a>
+
+            <a href="pages/vitrine.html" class="categoria">
+                <img src="assets/images/estrategia.png" alt="">
+                <span>Estratégia</span>
+            </a>
+
+            <a href="pages/vitrine.html" class="categoria">
+                <img src="assets/images/gestao.png" alt="">
+                <span>Gestão</span>
+            </a>
+
+        </section>
+
+        <section class="proposta">
+
+            <h2>
+                Seja online ou presencial, a
+                <span class="destaque">Prisma Cursos</span> se adapta à sua necessidade.
+            </h2>
+
+            <h3>VOCÊ É DIFERENTE</h3>
+
+            <p class="subtitulo">
+                Seu aprendizado também deve ser.
+            </p>
+
+            <div class="chamadas-acao">
+
+                <div class="chamada">
+                    <h4>
+                        Descubra <span class="destaque">sua jornada</span><br>
+                        conosco:
+                    </h4>
+
+                    <!-- CORREÇÃO: Adicionado pages/ -->
+                    <a href="pages/vitrine.html" class="botao">
+                        jornada de carreira
+                    </a>
+                </div>
+
+                <div class="chamada">
+                    <h4>Matricule-se já:</h4>
+
+                    <!-- CORREÇÃO: Adicionado pages/ -->
+                    <a href="pages/contatos.html" class="botao">
+                        Matricule-se
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <!-- CORREÇÃO: inicio.html mudou para index.html e adicionado pages/ no contatos -->
+        <a href="index.html" class="rodape-logo">
+            PRISMA<br>CURSOS
+        </a>
+
+        <a href="pages/contatos.html" class="botao-rodape">
+            Matricule-se
+        </a>
+    </footer>
+
 </body>
 </html>
-
-<!-- o index ainda está em construção, para rodá-lo basta instalar a extensão
- Live Server, clicar com o botão direito no index.html e clicar em Open with Live Server -->
-
- 
-
