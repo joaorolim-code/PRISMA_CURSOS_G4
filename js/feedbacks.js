@@ -64,31 +64,65 @@ const depoimentos = [
     }
 ];
 
+function normalizarNota(nota) {
+    const valor = Number(nota);
+
+    if (!Number.isFinite(valor)) {
+        return 0;
+    }
+
+    return Math.max(
+        0,
+        Math.min(5, Math.round(valor))
+    );
+}
+
 function criarEstrelas(nota) {
+    const notaValida = normalizarNota(nota);
+
     const estrelas = document.createElement("span");
+
     estrelas.className = "estrelas";
     estrelas.setAttribute("role", "img");
-    estrelas.setAttribute("aria-label", nota + " de 5 estrelas");
+
+    estrelas.setAttribute(
+        "aria-label",
+        notaValida + " de 5 estrelas"
+    );
 
     const simbolos = document.createElement("span");
+
     simbolos.setAttribute("aria-hidden", "true");
-    simbolos.textContent = "★".repeat(nota) + "☆".repeat(5 - nota);
+
+    simbolos.textContent =
+        "★".repeat(notaValida) +
+        "☆".repeat(5 - notaValida);
+
     estrelas.appendChild(simbolos);
 
     return estrelas;
 }
 
-function criarCardFeedback(depoimento) {
+function criarCardFeedback(depoimento, indice) {
     const card = document.createElement("article");
     card.className = "card-feedback";
 
+    const idTitulo = "feedback-" + indice;
+
+    card.setAttribute(
+        "aria-labelledby",
+        idTitulo
+    );
+
     const foto = document.createElement("img");
+
     foto.className = "foto-aluno";
     foto.src = depoimento.foto;
     foto.alt = "Retrato de " + depoimento.nomeAluno;
     foto.width = 220;
     foto.height = 220;
-    foto.loading = "lazy";
+    foto.loading = indice === 0 ? "eager" : "lazy";
+    foto.decoding = "async";
 
     const conteudo = document.createElement("div");
     conteudo.className = "conteudo-feedback";
@@ -97,35 +131,56 @@ function criarCardFeedback(depoimento) {
     cabecalho.className = "cabecalho-feedback";
 
     const titulo = document.createElement("h2");
+
     titulo.className = "nome-aluno";
+    titulo.id = idTitulo;
     titulo.append(depoimento.nomeAluno + " — ");
 
     const curso = document.createElement("span");
+
     curso.className = "curso-verde";
     curso.textContent = depoimento.nomeCurso;
+
     titulo.appendChild(curso);
 
     const texto = document.createElement("blockquote");
+
     texto.className = "texto-feedback";
     texto.textContent = depoimento.texto;
 
-    cabecalho.append(titulo, criarEstrelas(depoimento.nota));
-    conteudo.append(cabecalho, texto);
-    card.append(foto, conteudo);
+    cabecalho.append(
+        titulo,
+        criarEstrelas(depoimento.nota)
+    );
+
+    conteudo.append(
+        cabecalho,
+        texto
+    );
+
+    card.append(
+        foto,
+        conteudo
+    );
 
     return card;
 }
 
 function carregarFeedbacks() {
-    const container = document.getElementById("container-feedbacks");
+    const container = document.getElementById(
+        "container-feedbacks"
+    );
 
     if (!container) {
         return;
     }
 
     const fragmento = document.createDocumentFragment();
-    depoimentos.forEach((depoimento) => {
-        fragmento.appendChild(criarCardFeedback(depoimento));
+
+    depoimentos.forEach((depoimento, indice) => {
+        fragmento.appendChild(
+            criarCardFeedback(depoimento, indice)
+        );
     });
 
     container.replaceChildren(fragmento);

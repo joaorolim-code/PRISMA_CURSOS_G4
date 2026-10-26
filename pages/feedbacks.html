@@ -2,32 +2,99 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Veja as avaliações de alunos da Prisma Cursos.">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Confira as experiências dos alunos da Prisma Cursos."
+    >
+
     <title>Feedbacks de alunos | Prisma Cursos</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/feedbacks.css">
+
     <script src="../js/feedbacks.js" defer></script>
+    <script src="../js/main.js" defer></script>
 </head>
+
 <body>
     <header class="navbar-global">
         <div class="navbar-content">
-            <a class="logo" href="../index.html" aria-label="Prisma Cursos — página inicial">
-                <span class="logo-text">PRISMA<br>CURSOS</span>
-                <img src="../assets/images/logo-prisma.png" alt="">
+            <a
+                href="inicio.html"
+                class="logo"
+                aria-label="Prisma Cursos — página inicial"
+            >
+                <span class="logo-text">
+                    PRISMA<br>CURSOS
+                </span>
+
+                <img
+                    src="../assets/images/logo-prisma.png"
+                    alt=""
+                    width="40"
+                    height="40"
+                >
             </a>
 
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="menu-principal"
+            >
+                &#9776;
+            </button>
+
             <nav aria-label="Navegação principal">
-                <ul class="nav-links">
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="quem-somos.html">Quem somos</a></li>
-                    <li><a href="cursos.html">Cursos</a></li>
-                    <li><a href="feedbacks.html" class="active" aria-current="page">Feedbacks</a></li>
-                    <li><a href="contatos.html">Contatos</a></li>
+                <ul
+                    class="nav-links"
+                    id="menu-principal"
+                >
+                    <li>
+                        <a href="inicio.html">Início</a>
+                    </li>
+
+                    <li>
+                        <a href="quem-somos.html">Quem somos</a>
+                    </li>
+
+                    <li>
+                        <a href="vitrine.html">Cursos</a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="feedbacks.html"
+                            class="active"
+                            aria-current="page"
+                        >
+                            Feedbacks
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contatos.html">Contatos</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -35,23 +102,38 @@
 
     <main class="secao-feedbacks">
         <div class="container-feedbacks">
-            <h1 class="titulo-feedbacks">Veja a experiência de nossos alunos</h1>
-            <div class="lista-feedbacks" id="container-feedbacks"></div>
+            <h1 class="titulo-feedbacks">
+                Confira as experiências de quem já fez parte da Prisma Cursos
+            </h1>
+
+            <div
+                class="lista-feedbacks"
+                id="container-feedbacks"
+            ></div>
+
             <noscript>
-                <p class="aviso-feedbacks">Ative o JavaScript para visualizar os depoimentos dos alunos.</p>
+                <p class="aviso-feedbacks">
+                    Ative o JavaScript para visualizar os depoimentos dos alunos.
+                </p>
             </noscript>
         </div>
     </main>
 
     <footer class="rodape">
-    <a href="feedbacks.html" class="rodape-logo">
-        PRISMA<br>CURSOS
-    </a>
+        <a
+            href="inicio.html"
+            class="rodape-logo"
+            aria-label="Prisma Cursos — página inicial"
+        >
+            PRISMA<br>CURSOS
+        </a>
 
-    <a href="contatos.html" class="botao-rodape">
-        Matricule-se
-    </a>
-</footer>
-
+        <a
+            href="contatos.html"
+            class="botao-rodape"
+        >
+            Matricule-se
+        </a>
+    </footer>
 </body>
 </html>
