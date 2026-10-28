@@ -1,0 +1,418 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul-prisma: #021166;
+    --azul-modal: #061166;
+    --azul-bolinha: #5268C5;
+    --verde-prisma: #94FFAF;
+    --branco: #FFFFFF;
+    --texto-secundario: #DCE2FF;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    color: var(--branco);
+    background: #050D19;
+}
+
+
+.jornada-overlay {
+    min-height: 100vh;
+    width: 100%;
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.80);
+}
+
+.jornada-modal {
+    position: relative;
+
+    width: min(100%, 760px);
+    padding: 38px 32px 25px;
+
+    background: var(--azul-modal);
+    border-radius: 4px;
+
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+.fechar-jornada,
+.fechar-explicacao {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    background: transparent;
+
+    color: #7887D2;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    line-height: 1;
+
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.fechar-jornada:hover,
+.fechar-explicacao:hover {
+    color: var(--branco);
+}
+
+.fechar-jornada:focus-visible,
+.fechar-explicacao:focus-visible {
+    outline: 2px solid var(--verde-prisma);
+    outline-offset: 3px;
+}
+
+
+.jornada-modal h1 {
+    max-width: 570px;
+    margin: 0 auto;
+
+    color: var(--branco);
+
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(19px, 2.5vw, 25px);
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+
+    text-align: center;
+}
+
+.jornada-modal h1 span {
+    display: block;
+    color: var(--verde-prisma);
+}
+
+.linha-etapas {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: start;
+
+    width: 100%;
+    margin: 36px auto 0;
+}
+
+.etapa {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+    gap: 9px;
+
+    border: none;
+    padding: 0;
+
+    background: transparent;
+    color: var(--branco);
+
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+}
+
+.etapa:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    top: 24px;
+    left: calc(50% + 25px);
+
+    width: calc(100% - 50px);
+
+    border-top: 2px dashed #8C9AE4;
+}
+
+.etapa-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+
+    border: 2px solid transparent;
+    border-radius: 50%;
+
+    background: var(--azul-bolinha);
+    color: var(--branco);
+
+    font-size: 19px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.etapa:hover .etapa-icone {
+    transform: scale(1.07);
+}
+
+.etapa.selecionada .etapa-icone {
+    background: var(--verde-prisma);
+    color: var(--azul-prisma);
+
+    box-shadow: 0 0 14px rgba(148, 255, 175, 0.30);
+}
+
+.etapa-nome {
+    display: block;
+    max-width: 100%;
+
+    color: var(--branco);
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+
+    overflow-wrap: anywhere;
+}
+
+.etapa.selecionada .etapa-nome {
+    color: var(--verde-prisma);
+}
+
+.etapa:focus-visible .etapa-icone {
+    outline: 2px solid var(--branco);
+    outline-offset: 4px;
+}
+
+/* Texto abaixo da jornada */
+.instrucao {
+    margin-top: 30px;
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.explicacao-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.explicacao-overlay.aberto {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.explicacao-modal {
+    position: relative;
+
+    width: min(100%, 420px);
+    padding: 36px 28px 28px;
+
+    border: 1px solid rgba(148, 255, 175, 0.25);
+    border-radius: 8px;
+
+    background: var(--azul-modal);
+
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.5);
+
+    transform: translateY(8px);
+
+    transition: transform 0.2s ease;
+}
+
+.explicacao-overlay.aberto .explicacao-modal {
+    transform: translateY(0);
+}
+
+.explicacao-numero {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--verde-prisma);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.explicacao-modal h2 {
+    margin-bottom: 14px;
+
+    color: var(--branco);
+
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.explicacao-modal p {
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.botao-voltar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 24px;
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: var(--verde-prisma);
+    color: var(--azul-prisma);
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.botao-voltar:hover {
+    transform: translateY(-2px);
+}
+
+.botao-voltar:focus-visible {
+    outline: 2px solid var(--branco);
+    outline-offset: 4px;
+}
+
+
+@media (max-width: 600px) {
+    .jornada-overlay {
+        padding: 12px;
+    }
+
+    .jornada-modal {
+        padding: 42px 14px 22px;
+    }
+
+    .jornada-modal h1 {
+        font-size: 18px;
+    }
+
+    .linha-etapas {
+        margin-top: 30px;
+        gap: 4px;
+    }
+
+    .etapa {
+        gap: 8px;
+    }
+
+    .etapa-icone {
+        width: 39px;
+        height: 39px;
+        font-size: 14px;
+    }
+
+    .etapa:not(:last-child)::after {
+        top: 18px;
+        left: calc(50% + 19px);
+        width: calc(100% - 38px);
+    }
+
+    .etapa-nome {
+        font-size: 9px;
+    }
+
+    .instrucao {
+        margin-top: 25px;
+        font-size: 12px;
+    }
+
+    .explicacao-overlay {
+        padding: 14px;
+    }
+
+    .explicacao-modal {
+        padding: 35px 22px 24px;
+    }
+
+    .explicacao-modal h2 {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 360px) {
+    .jornada-modal {
+        padding-right: 9px;
+        padding-left: 9px;
+    }
+
+    .etapa-icone {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+
+    .etapa:not(:last-child)::after {
+        top: 15px;
+        left: calc(50% + 17px);
+        width: calc(100% - 34px);
+    }
+
+    .etapa-nome {
+        font-size: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
